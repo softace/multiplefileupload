@@ -7,7 +7,9 @@ gem 'rails', '3.2.7'
 #gem 'activerecord-deprecated_finders', :git => 'git://github.com/rails/activerecord-deprecated_finders.git'
 
 
-
+group :development do
+  gem 'debugger'
+end
 
 
 # To use ActiveModel has_secure_password

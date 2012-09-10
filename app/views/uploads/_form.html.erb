@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :files %><br />
-    <%= f.text_field :files %>
+    <%= f.file_field(:files, :multiple => true) %><br/>
   </div>
   <div class="field">
     <pre>
-    <%= params.to_yaml %>
+<%= @request_body %>
     </pre>
   </div>
   <div class="actions">
