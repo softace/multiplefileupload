@@ -1,5 +1,7 @@
 Multiplefileuplad::Application.routes.draw do
-  resources :uploads
+  resources :uploads, :only => [:new] do
+    post 'new', :on => :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

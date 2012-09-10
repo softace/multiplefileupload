@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.7'
 
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+#gem 'rails', :git => 'git://github.com/rails/rails.git'
+#gem 'activerecord-deprecated_finders', :git => 'git://github.com/rails/activerecord-deprecated_finders.git'
 
 
 

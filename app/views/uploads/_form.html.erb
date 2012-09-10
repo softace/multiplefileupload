@@ -1,4 +1,4 @@
-<%= form_for(@upload) do |f| %>
+<%= form_for(@upload, :url => { :action => "new" }, :multipart => true ) do |f| %>
   <% if @upload.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@upload.errors.count, "error") %> prohibited this upload from being saved:</h2>
@@ -14,6 +14,11 @@
   <div class="field">
     <%= f.label :files %><br />
     <%= f.text_field :files %>
+  </div>
+  <div class="field">
+    <pre>
+    <%= params.to_yaml %>
+    </pre>
   </div>
   <div class="actions">
     <%= f.submit %>
