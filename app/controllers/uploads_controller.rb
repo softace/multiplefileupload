@@ -1,6 +1,8 @@
 class UploadsController < ApplicationController
   # GET /uploads/new
   def new
+    @utf8_enforcer_tag_enabled = false
+
     upload_params = params && params[:upload]
     @upload = Upload.new(upload_params)
 
