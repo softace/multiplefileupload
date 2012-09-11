@@ -1,3 +1,25 @@
-<h1>New upload</h1>
+</article>
+<h1>Multiple File Upload</h1>
+
+<p>A small web application for investigating browser behaviour when
+POSTing multiple files</p>
+
+<p>It is a small web application that has one input field for multiple file upload, like:</p>
+
+<pre><code>&lt;form enctype="multipart/form-data" method="post"&gt;
+  &lt;input multiple="multiple" name="upload[files][]" type="file" /&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>The application simply spits out the the POST request body, so that you can see how different browser provide the multiple files over HTTP.</p>
+
+<p>The purpose of this application is to help test frameworks to mimick browser behaviour upon uploading mulitiple files in a single form <code>input</code> element with <code>type="file"</code> attribute.</p>
+
+<p>The source code is available at <a href="https://github.com/softace/multiplefileupload">https://github.com/softace/multiplefileupload</a></p></article>
+
+<br style="clear:both;">
+
+
+<h2>New upload</h2>
 
 <%= render 'form' %>

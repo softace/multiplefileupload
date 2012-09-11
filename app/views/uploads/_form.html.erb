@@ -15,12 +15,14 @@
     <%= f.label :files %><br />
     <%= f.file_field(:files, :multiple => true) %><br/>
   </div>
-  <div class="field">
-    <pre>
-<%= @request_body %>
-    </pre>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit'%>
   </div>
 <% end %>
+
+<% if @request_body -%>
+<h2>The received body in the HTTP POST request:</h2>
+<pre>
+<%= @request_body -%>
+</pre>
+<% end -%>
