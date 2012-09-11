@@ -14,6 +14,8 @@ The application simply spits out the the POST request body, so that you can see 
 
 The purpose of this application is to help test frameworks to mimick browser behaviour upon uploading mulitiple files in a single form `input` element with `type="file"` attribute.
 
+The application is installed on http://www.multiplefileupload.eu/
+
 The source code is available at https://github.com/softace/multiplefileupload
 
 
