@@ -1,7 +1,7 @@
 Multiplefileuplad::Application.routes.draw do
-  resources :uploads, :only => [:new] do
-    post 'new', :on => :member
-  end
+  root :to => redirect("/uploads/new")
+
+  match 'uploads/new' => 'uploads#new', :via => [:get, :post]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
