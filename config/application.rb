@@ -6,7 +6,6 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "active_model/railtie"
-require "sprockets/railtie" #TODO: Report: the generators are still generating Javascript, and css assets
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)
