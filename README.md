@@ -18,6 +18,6 @@ The purpose of this application is to help test frameworks to mimick browser beh
 
 The application is installed on http://www.multiplefileupload.eu/
 
-The source code is available at https://github.com/softace/multiplefileupload
+The source code is available at http://github.com/softace/multiplefileupload
 
 
