@@ -25,11 +25,12 @@ gem "rspec-rails", "~> 2.11", :group => [:development, :test]
 
 group :development do
   gem 'debugger'
+  gem "cucumber-rails", "~> 1.3"
 end
 
 group :test do
-  gem "cucumber-rails", "~> 1.3"
   gem "shoulda-matchers", "~> 1.3"
   gem "factory_girl_rails", "~> 4.0"
+  gem "capybara", "~> 1.1"
 end
 
