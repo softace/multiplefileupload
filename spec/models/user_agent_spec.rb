@@ -9,4 +9,12 @@ describe UserAgent do
   it { should validate_numericality_of(:post_zero_count) }
   it { should validate_numericality_of(:post_single_count) }
   it { should validate_numericality_of(:post_multiple_count) }
+
+  context "valid user_agent" do
+    subject { FactoryGirl.build(:user_agent) }
+    it { should allow_value(Time.zone.now.iso8601).for(:last_seen) }
+    it { should allow_value(Time.zone.now.utc.iso8601).for(:last_seen) }
+    it { should_not allow_value("/12/12/2012").for(:last_seen) }
+    it { should_not allow_value("12:30").for(:last_seen) }
+  end
 end

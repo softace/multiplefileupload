@@ -5,12 +5,14 @@ class UserAgent < ActiveRecord::Base
     :presence => true,
     :uniqueness => true,
     :allow_blank => false,
-    :length => { :in => 5..255 }
+    :length => { :in => 5..255 },
   }
   validates :last_seen, {
     :presence => true,
     :allow_blank => false,
-  }  
+    :timeliness => {:format => 'yyyy-mm-ddThh:nn:ssZ'},
+  }
+  
   validates :get_count, :numericality => { :only_integer => true }
   validates :post_zero_count, :numericality => { :only_integer => true }
   validates :post_single_count, :numericality => { :only_integer => true }
