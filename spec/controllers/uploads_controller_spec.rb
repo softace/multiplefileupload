@@ -9,7 +9,7 @@ describe UploadsController do
     end
     
     describe "GET 'new'" do
-      before(:each) { get 'new'}
+      before(:each) { get 'new_get'}
 
       it "returns http success and" do
         expect(response).to render_template('new')
@@ -17,7 +17,7 @@ describe UploadsController do
       end
 
       it "increases number of user_agent records" do
-        expect { get 'new' }.to change{ UserAgent.find_by_user_agent_string(test_user_agent).get_count }.from(1).to(2)
+        expect { get 'new_get' }.to change{ UserAgent.find_by_user_agent_string(test_user_agent).get_count }.from(1).to(2)
       end
     end
 
@@ -30,17 +30,17 @@ describe UploadsController do
 
     describe "GET 'new'" do
       it "returns http success and" do
-        get 'new'
+        get 'new_get'
         expect(response).to render_template('new')
         response.should be_success
       end
       
       it "creates a new record for an unknown user agent" do
-        expect { get 'new' }.to change{ UserAgent.exists?(:user_agent_string => test_user_agent) }.from(false).to(true)
+        expect { get 'new_get' }.to change{ UserAgent.exists?(:user_agent_string => test_user_agent) }.from(false).to(true)
       end
 
       it "sets new records to have get_count = 1" do
-        get 'new'
+        get 'new_get'
         UserAgent.find_by_user_agent_string(test_user_agent).get_count.should == 1
       end
     end
