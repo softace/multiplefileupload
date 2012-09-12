@@ -16,12 +16,14 @@ ActiveRecord::Schema.define(:version => 20120912084211) do
   create_table "user_agents", :force => true do |t|
     t.datetime "last_seen"
     t.string   "user_agent_string"
-    t.integer  "get"
-    t.integer  "post_zero"
-    t.integer  "post_single"
-    t.integer  "post_multiple"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.integer  "get_count"
+    t.integer  "post_zero_count"
+    t.integer  "post_single_count"
+    t.integer  "post_multiple_count"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
+
+  add_index "user_agents", ["user_agent_string"], :name => "index_user_agents_on_user_agent_string"
 
 end

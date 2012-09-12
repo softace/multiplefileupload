@@ -1,5 +1,5 @@
 class UserAgent < ActiveRecord::Base
-  attr_accessible :get, :last_seen, :post_multiple, :post_single, :post_zero, :user_agent_string
+  attr_accessible :get_count, :last_seen, :post_multiple_count, :post_single_count, :post_zero_count, :user_agent_string
   
   validates :user_agent_string, {
     :presence => true,
@@ -11,8 +11,8 @@ class UserAgent < ActiveRecord::Base
     :presence => true,
     :allow_blank => false,
   }  
-  validates :get, :numericality => { :only_integer => true }
-  validates :post_zero, :numericality => { :only_integer => true }
-  validates :post_single, :numericality => { :only_integer => true }
-  validates :post_multiple, :numericality => { :only_integer => true }
+  validates :get_count, :numericality => { :only_integer => true }
+  validates :post_zero_count, :numericality => { :only_integer => true }
+  validates :post_single_count, :numericality => { :only_integer => true }
+  validates :post_multiple_count, :numericality => { :only_integer => true }
 end
