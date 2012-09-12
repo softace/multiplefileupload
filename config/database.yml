@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  database: multiplefileupload_dev
+  host: localhost
+  username: multiplefileupload_dev
+  password: Multiplefileupload_Dev
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: multiplefileupload_test
+  host: localhost
+  username: multiplefileupload_test
+  password: Multiplefileupload_Test
+  timeout: 5000
+  min_messages: warning

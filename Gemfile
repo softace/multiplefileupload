@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'utf8_enforcer_workaround', '1.0.1'
+gem "pg", "0.14.1"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -19,12 +20,14 @@ group :production do
 end
 
 
-gem "rspec-rails", "~> 2.11.0", :group => [:development, :test]
+gem "rspec-rails", "~> 2.11", :group => [:development, :test]
+
 group :development do
   gem 'debugger'
 end
 
 group :test do
-  gem "cucumber-rails", "1.3.0"
+  gem "cucumber-rails", "~> 1.3"
+  gem "shoulda-matchers", "~> 1.3"
 end
 
