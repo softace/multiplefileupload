@@ -19,6 +19,12 @@ group :production do
 end
 
 
+gem "rspec-rails", "~> 2.11.0", :group => [:development, :test]
 group :development do
   gem 'debugger'
 end
+
+group :test do
+  gem "cucumber-rails", "1.3.0"
+end
+
