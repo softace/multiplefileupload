@@ -6,6 +6,10 @@ shared_examples_for "any request" do
     expect(response).to render_template('new')
     response.should be_success
   end
+  it "sets last_seen" do
+    subject
+    UserAgent.find_by_user_agent_string(test_user_agent).last_seen.should be_within(1.second).of(Time.zone.now)
+  end
 end
 
 shared_examples_for "a request made by an unknown user agent" do |args|
@@ -27,6 +31,11 @@ shared_examples_for "a request made by a known user agent" do |args|
     expect { subject }.
       to change{ UserAgent.find_by_user_agent_string(test_user_agent).send(:"#{args[:request_counter]}_count") }.
       by(1)
+  end
+  it "updates last_seen" do
+#    UserAgent.find_by_user_agent_string(test_user_agent).update_attribute(:last_seen , 1.month.ago) ##This seem not necessary due to high accuracy in the DB datetime type.
+    expect { subject }.
+      to change{ UserAgent.find_by_user_agent_string(test_user_agent).last_seen }
   end
 end
 

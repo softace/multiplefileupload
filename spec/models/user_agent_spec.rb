@@ -14,4 +14,27 @@ describe UserAgent do
   it { should allow_value(Time.zone.now.utc.iso8601).for(:last_seen) }
   it { should_not allow_value("/12/12/2012").for(:last_seen) }
   it { should_not allow_value("12:30").for(:last_seen) }
+  its(:last_seen) { should be_within(1).of(Time.zone.now) }
+  its(:get_count) { should == 0 }
+  its(:post_zero_count) { should == 0 }
+  its(:post_single_count) { should == 0 }
+  its(:post_multiple_count) { should == 0 }
+  
+  describe "a specific instance" do
+    let!(:user_agent) do
+      FactoryGirl.create(:user_agent,
+                         :get_count => 100,
+                         :post_zero_count => 100,
+                         :post_single_count => 100,
+                         :post_multiple_count => 100,
+                         :last_seen => 1.hour.ago,
+                         )
+    end
+    subject { user_agent.reload }
+    its(:last_seen) { should be_within(1.second).of(1.hour.ago) }
+    its(:get_count) { should == 100 }
+    its(:post_zero_count) { should == 100 }
+    its(:post_single_count) { should == 100 }
+    its(:post_multiple_count) { should == 100 }
+  end
 end

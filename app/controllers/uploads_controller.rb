@@ -41,5 +41,7 @@ class UploadsController < ApplicationController
     @utf8_enforcer_tag_enabled = false
     @request_body = nil
     @user_agent = UserAgent.find_or_create_by_user_agent_string(request.env['HTTP_USER_AGENT'])
+    @user_agent.last_seen = Time.zone.now.utc
+    @user_agent.save!
   end
 end
