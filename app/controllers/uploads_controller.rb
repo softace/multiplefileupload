@@ -17,6 +17,15 @@ class UploadsController < ApplicationController
     upload_params = params && params[:upload]
     @upload = Upload.new(upload_params)
 
+    if @upload.files
+      case @upload.files.count
+      when 0 then @user_agent.increment!(:post_zero_count)
+      when 1 then @user_agent.increment!(:post_single_count)
+      else
+        @user_agent.increment!(:post_multiple_count)
+      end
+    end
+
     if request.body.size < 1000
       @request_body = request.body.read
     else

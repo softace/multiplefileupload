@@ -45,5 +45,63 @@ describe UploadsController do
       end
     end
 
+    describe "POST 'new' without files" do
+      let(:invoke_post_new) { post 'new_post', :upload => {:files => [] } }
+      
+      it "returns http success and" do
+        invoke_post_new
+        expect(response).to render_template('new')
+        response.should be_success
+      end
+      
+      it "creates a new record for an unknown user agent" do
+        expect { invoke_post_new }.to change{ UserAgent.exists?(:user_agent_string => test_user_agent) }.from(false).to(true)
+      end
+
+      it "sets new records to have post_zero_count = 1" do
+        invoke_post_new
+        UserAgent.find_by_user_agent_string(test_user_agent).post_zero_count.should == 1
+      end
+    end
+
+    describe "POST 'new' with a single file" do
+      let(:test_file) { fixture_file_upload('/files/oneliner.txt', 'text/plain') }
+      let(:invoke_post_new) { post 'new_post', :upload => {:files => [test_file] } }
+      
+      it "returns http success and" do
+        invoke_post_new
+        expect(response).to render_template('new')
+        response.should be_success
+      end
+      
+      it "creates a new record for an unknown user agent" do
+        expect { invoke_post_new }.to change{ UserAgent.exists?(:user_agent_string => test_user_agent) }.from(false).to(true)
+      end
+
+      it "sets new records to have post_single_count = 1" do
+        invoke_post_new
+        UserAgent.find_by_user_agent_string(test_user_agent).post_single_count.should == 1
+      end
+    end
+
+    describe "POST 'new' with two files" do
+      let(:test_file) { fixture_file_upload('/files/oneliner.txt', 'text/plain') }
+      let(:invoke_post_new) { post 'new_post', :upload => {:files => [test_file, test_file] } }
+      
+      it "returns http success and" do
+        invoke_post_new
+        expect(response).to render_template('new')
+        response.should be_success
+      end
+      
+      it "creates a new record for an unknown user agent" do
+        expect { invoke_post_new }.to change{ UserAgent.exists?(:user_agent_string => test_user_agent) }.from(false).to(true)
+      end
+
+      it "sets new records to have post_multiple_count = 1" do
+        invoke_post_new
+        UserAgent.find_by_user_agent_string(test_user_agent).post_multiple_count.should == 1
+      end
+    end
   end
 end
