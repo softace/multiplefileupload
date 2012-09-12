@@ -28,7 +28,7 @@ group :development do
 end
 
 group :test do
-  gem "cucumber-rails", "~> 1.3"
+  gem "cucumber-rails", "~> 1.3", :require => false
   gem "shoulda-matchers", "~> 1.3"
   gem "factory_girl_rails", "~> 4.0"
   gem "capybara", "~> 1.1"
