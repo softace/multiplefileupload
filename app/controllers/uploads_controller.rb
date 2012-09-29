@@ -27,7 +27,7 @@ class UploadsController < ApplicationController
       end
     end
 
-    if request.body.size < 1000
+    if request.body.size < 1.megabytes
       @request_body = request.body.read
     else
       @upload.errors.add(:files, "HTTP Request body too large (> 1000 bytes)")
