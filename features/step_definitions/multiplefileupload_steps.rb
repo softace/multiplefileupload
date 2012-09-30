@@ -9,7 +9,7 @@ end
 
 
 
-Then /^I see the content "(.*?)"$/ do |content|
+Then /^I see the content:$/ do |content|
   page.should have_content(content)
 end
 
