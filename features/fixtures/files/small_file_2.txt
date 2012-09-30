@@ -1,1 +1,1 @@
-This is another small file
+This is another small file that contains <html><br/></html> tags.

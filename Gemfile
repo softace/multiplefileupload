@@ -28,11 +28,13 @@ group :development do
 end
 
 group :test do
+  gem 'debugger' ##necessary for debugging cucumber
   gem "cucumber-rails", "~> 1.3", :require => false
   gem "database_cleaner", "~> 0.8"
   gem "shoulda-matchers", "~> 1.3"
   gem "factory_girl_rails", "~> 4.0"
 #  gem "capybara", "~> 1.1"
-   gem "capybara", :git => "git://github.com/jnicklas/capybara.git", :branch => "1.1_stable"
+  gem "capybara", :git => "git://github.com/jnicklas/capybara.git"
+  gem "xpath", :git => "git://github.com/jnicklas/xpath.git"
 end
 
