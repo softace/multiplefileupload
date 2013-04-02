@@ -1,7 +1,7 @@
 # -*- ruby -*-
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.13'
 gem 'utf8_enforcer_workaround', '1.0.1'
 gem "pg", "0.14.1"
 gem "validates_timeliness", "~> 3.0"
